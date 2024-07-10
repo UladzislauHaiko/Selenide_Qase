@@ -1,5 +1,6 @@
 package pages;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -34,6 +35,16 @@ public class ProjectsPage {
     public void clickCreateProjectButton() {
         $(byText(createProjectButton)).click();
     }
+
+    public void projectsPageIsOpened() {
+        $(byText("testProject")).shouldBe(visible);
+    }
+
+    public void openProject(String projectName) {
+        $(byText(projectName)).click();
+    }
+
+
 
     public void createNewProject(String name, String code, String desc) {
         clickCreateNewProjectButton();

@@ -22,7 +22,6 @@ public class BaseTest {
         Configuration.savePageSource = false;
         Configuration.webdriverLogsEnabled = true;
         Configuration.reportsFolder = "target/build";
-        Configuration.browserSize = "target/build";
 
         loginPage = new LoginPage();
         projectsPage = new ProjectsPage();

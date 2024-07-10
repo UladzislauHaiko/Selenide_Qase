@@ -11,13 +11,12 @@ import static com.codeborne.selenide.Selenide.$;
 public class CaseTests extends BaseTest {
     @Test
     public void createNewCaseTest() {
-        $(byText("testProject")).shouldBe(visible);
-        $(byText("testProject")).click();
+        projectsPage.projectsPageIsOpened();
+        projectsPage.openProject("testProject");
         projectsPage.clickPlusCaseButton();
         testCasePage.setTitle("title Vlad");
         testCasePage.setDescription("desc Vlad");
         testCasePage.clickSaveButton();
-        $(byText("title Vlad")).shouldBe(visible);
-        Assert.assertTrue($(byText("title Vlad")).isDisplayed());
+        Assert.assertTrue(testCasePage.testCaseIsCreated());
     }
 }

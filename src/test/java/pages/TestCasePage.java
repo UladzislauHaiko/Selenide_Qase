@@ -1,5 +1,8 @@
 package pages;
 
+import org.testng.Assert;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -10,11 +13,10 @@ public class TestCasePage {
     protected final static String saveButton = "Save";
 
 
-
-
     public void setTitle(String title) {
         $(caseTitle).setValue(title);
     }
+
     public void setDescription(String description) {
         $(caseDescription).setValue(description);
     }
@@ -22,8 +24,14 @@ public class TestCasePage {
     public void setSeverity(String severity) {
         $(caseSeverity).setValue(severity);
     }
+
     public void clickSaveButton() {
         $(byText(saveButton)).click();
+    }
+
+    public boolean testCaseIsCreated() {
+        $(byText("title Vlad")).shouldBe(visible);
+        return $(byText("title Vlad")).isDisplayed();
     }
 
 }
