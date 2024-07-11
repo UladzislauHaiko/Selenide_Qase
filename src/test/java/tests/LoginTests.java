@@ -11,7 +11,6 @@ public class LoginTests extends BaseTest {
     @Test
     public void positiveLoginTest() {
         loginPage.login("haikoqase@mailinator.com", "Password12345'");
-        $("#createButton").shouldBe(clickable);
-        Assert.assertTrue($("#createButton").isDisplayed());
+        Assert.assertTrue(projectsPage.createNewProjectButtonIsDisplayed());
     }
 }

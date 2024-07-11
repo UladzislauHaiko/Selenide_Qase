@@ -12,16 +12,14 @@ import static com.codeborne.selenide.Selenide.$x;
 public class TestRunTests extends BaseTest {
     @Test
     public void createNewTestRun() {
-        $(byText("testProject")).shouldBe(clickable);
-        $(byText("testProject")).click();
-        $(byText("Test Runs")).click();
-        $(byText("Start new test run")).click();
-        $x("//*[@class='KF8Qfm']/following-sibling::div//p").setValue("test");
-        $x("//div[@class='qAfY3T']/button").scrollIntoView(true).shouldBe(visible).click();
-        $x("//div[@class='ktuLwl']/ui-reset/label").shouldBe(visible).click();
-        $x("//span[@class='B9YsTi' and text()='Done']").shouldBe(visible).click();
-        $("[type='submit']").shouldBe(visible).click();
-        $x("//span[@class='TKsrzo' and text()=' Complete']").shouldBe(visible);
-        Assert.assertTrue($x("//span[@class='TKsrzo' and text()=' Complete']").isDisplayed());
+        projectsPage.openProjectByName("testProject");
+        projectsPage.openTestRunTab();
+        projectsPage.clickStartNewTestRunButton();
+        projectsPage.setRunDescription("test run");
+        projectsPage.clickSelectCasesButton();
+        projectsPage.clickSelectAllCheckbox();
+        projectsPage.clickDoneButton();
+        projectsPage.clickStartARunButton();
+        Assert.assertTrue(testRunPage.completeButtonIsDisplayed());
     }
 }

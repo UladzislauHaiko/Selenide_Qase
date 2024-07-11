@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProjectsPage;
 import pages.TestCasePage;
+import pages.TestRunPage;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -14,6 +15,7 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected ProjectsPage projectsPage;
     protected TestCasePage testCasePage;
+    protected TestRunPage testRunPage;
 
     @BeforeClass
     public void setup() {
@@ -22,10 +24,12 @@ public class BaseTest {
         Configuration.savePageSource = false;
         Configuration.webdriverLogsEnabled = true;
         Configuration.reportsFolder = "target/build";
+        Configuration.downloadsFolder = "target/build";
 
         loginPage = new LoginPage();
         projectsPage = new ProjectsPage();
         testCasePage = new TestCasePage();
+        testRunPage = new TestRunPage();
 
         loginPage.openPage();
         getWebDriver().manage().window().maximize();

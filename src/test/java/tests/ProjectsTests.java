@@ -12,7 +12,6 @@ public class ProjectsTests extends BaseTest {
     @Test
     public void createNewProjectTest() {
         projectsPage.createNewProject("projectVlad", "1234", "descriptionVlad");
-        $(byText("Create new suite")).shouldBe(clickable);
-        Assert.assertTrue($(byText("Create new suite")).isDisplayed());
+        Assert.assertTrue(projectsPage.createNewSuiteButtonIsDisplayed());
     }
 }
