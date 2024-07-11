@@ -29,9 +29,9 @@ public class TestCasePage {
         $(byText(saveButton)).click();
     }
 
-    public boolean testCaseIsCreated() {
-        $(byText("title Vlad")).shouldBe(visible);
-        return $(byText("title Vlad")).isDisplayed();
+    public boolean testCaseIsCreated(String title) {
+        $(byText(title)).shouldBe(visible);
+        return $(byText(title)).isDisplayed();
     }
 
 }

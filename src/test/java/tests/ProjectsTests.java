@@ -11,6 +11,7 @@ public class ProjectsTests extends BaseTest {
 
     @Test
     public void createNewProjectTest() {
+        loginPage.login(USERNAME, PASSWORD);
         projectsPage.createNewProject("projectVlad", "1234", "descriptionVlad");
         Assert.assertTrue(projectsPage.createNewSuiteButtonIsDisplayed());
     }

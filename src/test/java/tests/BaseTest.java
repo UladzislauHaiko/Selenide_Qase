@@ -16,6 +16,8 @@ public class BaseTest {
     protected ProjectsPage projectsPage;
     protected TestCasePage testCasePage;
     protected TestRunPage testRunPage;
+    protected static final String USERNAME = "haikoqase@mailinator.com";
+    protected static final String PASSWORD = "Password12345'";
 
     @BeforeClass
     public void setup() {
@@ -25,6 +27,7 @@ public class BaseTest {
         Configuration.webdriverLogsEnabled = true;
         Configuration.reportsFolder = "target/build";
         Configuration.downloadsFolder = "target/build";
+        Configuration.browserSize = "1920x1080";
 
         loginPage = new LoginPage();
         projectsPage = new ProjectsPage();
@@ -32,7 +35,5 @@ public class BaseTest {
         testRunPage = new TestRunPage();
 
         loginPage.openPage();
-        getWebDriver().manage().window().maximize();
-        loginPage.login("haikoqase@mailinator.com", "Password12345'");
     }
 }

@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class TestRunTests extends BaseTest {
     @Test
     public void createNewTestRun() {
+        loginPage.login(USERNAME, PASSWORD);
         projectsPage.openProjectByName("testProject");
         projectsPage.openTestRunTab();
         projectsPage.clickStartNewTestRunButton();
